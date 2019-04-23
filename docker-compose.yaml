@@ -64,7 +64,7 @@ services:
           - traefik.port=80
 
     traefik:
-        image: traefik:2.0-alpine
+        image: traefik:v1.7-alpine
         depends_on:
           - api
         volumes:
