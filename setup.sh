@@ -18,3 +18,4 @@ envsubst '${ACME_EMAIL} ${ACME_SERVER}' < config/traefik.template.toml > config/
 envsubst '${BASE_URL} ${DB_PASSWORD} ${ENABLE_ADMINER}' < docker-compose.override.template.yaml > docker-compose.override.yaml
 
 
+

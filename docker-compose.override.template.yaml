@@ -7,8 +7,9 @@ services:
 
     adminer:
         labels:
-            - "traefik.domain=${BASE_URL}"
-            - "traefik.frontend.rule=Host:${BASE_URL};PathPrefixStrip:/adminer"
+            - "traefik.enable=${ENABLE_ADMINER}"
+            - "traefik.frontend.rule=PathPrefixStrip:/adminer"
+            - "traefik.frontend.rule=Host:${BASE_URL}"
 
     api:
         environment:
