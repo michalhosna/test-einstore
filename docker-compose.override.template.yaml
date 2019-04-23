@@ -17,7 +17,8 @@ services:
             APICORE_SERVER_INTERFACE: "https://${BASE_URL}/"
             APICORE_DATABASE_PASSWORD: "${DB_PASSWORD}"
         labels:
-            - "traefik.frontend.rule=Host:${BASE_URL};PathPrefix:/api"
+            - "traefik.frontend.rule=PathPrefix:/api"
+            - "traefik.frontend.rule=Host:${BASE_URL}"
 
     admin:
         environment:
