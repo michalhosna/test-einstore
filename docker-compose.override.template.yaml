@@ -2,7 +2,7 @@ version: '2.4'
 
 services:
     postgres:
-        labels:
+        environment:
             POSTGRES_PASSWORD: "${DB_PASSWORD}"
 
     adminer:
