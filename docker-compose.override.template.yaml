@@ -14,13 +14,13 @@ services:
         environment:
             APICORE_SERVER_URL: "https://${BASE_URL}/api/"
             APICORE_SERVER_INTERFACE: "https://${BASE_URL}/"
+            APICORE_DATABASE_PASSWORD: "${DB_PASSWORD}"
         labels:
             - "traefik.domain=${BASE_URL}"
 
     admin:
         environment:
             API_URL: "https://${BASE_URL}/api"
-            APICORE_DATABASE_PASSWORD: "${DB_PASSWORD}"
         labels:
             - "traefik.domain=${BASE_URL}"
 

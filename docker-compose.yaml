@@ -20,7 +20,7 @@ services:
             - traefik.port=8080
             - traefik.frontend.rule=PathPrefix:/adminer/
     api:
-        image: einstore/einstore-core:dev.master.debug
+        image: einstore/einstore-core:dev.master
         restart: on-failure
         environment:
             APICORE_STORAGE_LOCAL_ROOT: /home/einstore

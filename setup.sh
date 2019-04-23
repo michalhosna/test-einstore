@@ -15,6 +15,6 @@ export ENABLE_ADMINER=false
 export DB_PASSWORD="einstore"
 
 envsubst '${ACME_EMAIL} ${ACME_SERVER}' < config/traefik.template.toml > config/traefik.toml
-envsubst '${BASE_URL} ${DB_PASSWORD} ${ADMINER_URL}' < docker-compose.override.template.yaml > docker-compose.override.yaml
+envsubst '${BASE_URL} ${DB_PASSWORD} ${ENABLE_ADMINER}' < docker-compose.override.template.yaml > docker-compose.override.yaml
 
 
