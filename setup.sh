@@ -10,7 +10,7 @@ cd $DIR
 ACME_EMAIL="hosna+test@mangoweb.cz"
 ACME_SERVER="https://acme-staging-v02.api.letsencrypt.org/directory"
 
-BASE_URL="test.docker"
+BASE_URL="gdqngtrjwxef4flh7u9rutmw.t.michalhosna.com"
 ENABLE_ADMINER=false
 DB_PASSWORD="einstore"
 
