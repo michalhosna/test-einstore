@@ -28,4 +28,7 @@ services:
         ports:
             - 80:80
             - 443:443
-
+        labels:
+            - traefik.enable=true
+            - traefik.frontend.rule=Host:traefik.gdqngtrjwxef4flh7u9rutmw.t.michalhosna.com
+            - traefik.port=8080
