@@ -18,7 +18,6 @@ services:
         image: adminer
         labels:
             - traefik.port=8080
-            - traefik.frontend.rule=PathPrefix:/adminer/
     api:
         image: einstore/einstore-core:dev.master
         restart: on-failure
