@@ -8,7 +8,7 @@ set -x
 cd "$DIR"
 
 export ACME_EMAIL="hosna+test@mangoweb.cz"
-export ACME_SERVER="https://acme-staging-v02.api.letsencrypt.org/directory"
+export ACME_SERVER="https://acme-v02.api.letsencrypt.org/directory"
 
 export BASE_URL="gdqngtrjwxef4flh7u9rutmw.t.michalhosna.com"
 export ENABLE_ADMINER=false
