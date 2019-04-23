@@ -5,7 +5,7 @@ SCRIPT=$(readlink -f "$0")
 DIR=$(dirname "$SCRIPT")
 set -x
 
-cd $DIR
+cd "$DIR"
 
 ACME_EMAIL="hosna+test@mangoweb.cz"
 ACME_SERVER="https://acme-staging-v02.api.letsencrypt.org/directory"
