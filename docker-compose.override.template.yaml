@@ -8,8 +8,7 @@ services:
     adminer:
         labels:
             - "traefik.enable=${ENABLE_ADMINER}"
-            - "traefik.frontend.rule=PathPrefixStrip:/adminer"
-            - "traefik.frontend.rule=Host:${BASE_URL}"
+            - "traefik.frontend.rule=Host:${BASE_URL};PathPrefixStrip:/adminer"
 
     api:
         environment:
@@ -17,8 +16,7 @@ services:
             APICORE_SERVER_INTERFACE: "https://${BASE_URL}/"
             APICORE_DATABASE_PASSWORD: "${DB_PASSWORD}"
         labels:
-            - "traefik.frontend.rule=PathPrefix:/api"
-            - "traefik.frontend.rule=Host:${BASE_URL}"
+            - "traefik.frontend.rule=Host:${BASE_URL};PathPrefix:/api"
 
     admin:
         environment:
