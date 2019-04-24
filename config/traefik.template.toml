@@ -20,11 +20,11 @@ address = ":8080"
 
 
 [acme]
-email = "${ACME_EMAIL}" #TODO
+email = "${ACME_EMAIL}"
 storage = "/acme-storage/acme.json"
 onHostRule = true
 acmeLogging = true
-caServer = "${ACME_SERVER}" #TODO
+caServer = "https://acme-v02.api.letsencrypt.org/directory"
 entryPoint = "https"
   [acme.httpChallenge]
   entryPoint = "http"
