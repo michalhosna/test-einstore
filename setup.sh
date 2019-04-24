@@ -6,10 +6,10 @@ DIR=$(dirname "$SCRIPT")
 
 cd "$DIR"
 
-DOMAIN_REGEX="^([a-zA-Z0-9]([a-zA-Z0-9-]{,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$"
+DOMAIN_REGEX="^([a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$"
 
 # Params: <Question> <Regex> [DefaultValue]
-function ask{
+function ask(){
     while true; do
         if [ $# -eq 2 ]; then
             read -p "$1: " RESULT
@@ -52,7 +52,7 @@ export DB_PASSWORD="${RESULT}"
 ask "Enable object storage backend (S3 or compatible)" "^true|false$" "false"
 export APICORE_STORAGE_S3_ENABLED="${RESULT}"
 
-if [ "$APICORE_STORAGE_S3_ENABLED" -eq "true" ]; then
+if [ "$APICORE_STORAGE_S3_ENABLED" = "true" ]; then
     ask "S3 bucket" "^\S+$"
     export APICORE_STORAGE_S3_BUCKET="${RESULT}"
 
@@ -82,12 +82,12 @@ export APICORE_MAIL_EMAIL="${RESULT}"
 
 
 ask "Email protocol <mailgun|smtp>" "^mailgun|smtp$" "smtp"
-if [ "$RESULT" -eq "smtp" ]; then
+if [ "$RESULT" = "smtp" ]; then
     ask "SMTP configuration <smtp_server;username;password;port>" "^\S+;\S*;\S*;\d+$"
     export APICORE_MAIL_SMTP="${RESULT}"
     export APICORE_MAIL_MAILGUN_DOMAIN="~"
     export APICORE_MAIL_MAILGUN_KEY="~"
-elif [ "$RESULT" -eq "mailgun" ]; then
+elif [ "$RESULT" = "mailgun" ]; then
     export APICORE_MAIL_SMTP="~"
 
     ask "Mailgun domain" $DOMAIN_REGEX
@@ -100,7 +100,7 @@ fi
 ask "Enable GitHub login" "^true|false$" "false"
 export APICORE_AUTH_GITHUB_ENABLED="${RESULT}"
 
-if [ "$APICORE_AUTH_GITHUB_ENABLED" -eq "true" ]; then
+if [ "$APICORE_AUTH_GITHUB_ENABLED" = "true" ]; then
 
     echo "See https://github.com/Einstore/Einstore/wiki/Environmental-variables"
 
@@ -128,7 +128,7 @@ fi
 
 ask "Enable GitLab login" "^true|false$" "false"
 export APICORE_AUTH_GITLAB_ENABLED="${RESULT}"
-if [ "$APICORE_AUTH_GITLAB_ENABLED" -eq "true" ]; then
+if [ "$APICORE_AUTH_GITLAB_ENABLED" = "true" ]; then
     echo "See https://github.com/Einstore/Einstore/wiki/Environmental-variables"
 
     ask "APICORE_AUTH_GITLAB_APPLICATION" "^\S*"
