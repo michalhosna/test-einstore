@@ -9,7 +9,7 @@ cd "$DIR"
 DOMAIN_REGEX="^([a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$"
 
 # Params: <Question> <Regex> [DefaultValue]
-function ask(){
+ask(){
     while true; do
         if [ $# -eq 2 ]; then
             read -p "$1: " RESULT
