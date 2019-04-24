@@ -36,7 +36,7 @@ if [ -f config/traefik.toml ]; then
     exit 1
 fi
 
-ask "Base domain (e.g. \"example.com\")" $DOMAIN_REGEX
+ask "Base domain (e.g. \"example.com\")" "$DOMAIN_REGEX"
 export BASE_URL="${RESULT}"
 
 ask "ACME email (Let's Encrypt)" "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
@@ -90,7 +90,7 @@ if [ "$RESULT" = "smtp" ]; then
 elif [ "$RESULT" = "mailgun" ]; then
     export APICORE_MAIL_SMTP="~"
 
-    ask "Mailgun domain" $DOMAIN_REGEX
+    ask "Mailgun domain" "$DOMAIN_REGEX"
     export APICORE_MAIL_MAILGUN_DOMAIN="${RESULT}"
     ask "Mailgun key" "^[a-zA-Z0-9-]+$"
     export APICORE_MAIL_MAILGUN_KEY="${RESULT}"
